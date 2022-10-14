@@ -20,13 +20,13 @@ start: number,
 end: number,
 loc: SourceLocation,
 type: "CommentBlock" | "CommentLine",
-} export type CommentBlock = {
+} declare export type CommentBlock = {
 type: "CommentBlock",...
 } & BaseComment
-export type CommentLine = {
+declare export type CommentLine = {
 type: "CommentLine",...
 } & BaseComment
-export type Comment = CommentBlock | CommentLine;export interface SourceLocation {
+declare export type Comment = CommentBlock | CommentLine;declare export interface SourceLocation {
 start: {
 line: number,
 column: number,...
@@ -44,7 +44,7 @@ end: number | null,
 loc: SourceLocation | null,
 type: $PropertyType<Node, "type">,
 extra?: {[key: string]: mixed, ...},
-} export type Node = Accessor
+} declare export type Node = Accessor
 | AnyTypeAnnotation
 | ArgumentPlaceholder
 | ArrayExpression
@@ -344,17 +344,17 @@ extra?: {[key: string]: mixed, ...},
 | While
 | WhileStatement
 | WithStatement
-| YieldExpression;export type ArrayExpression = {
+| YieldExpression;declare export type ArrayExpression = {
 type: "ArrayExpression",
 elements: Array<null | Expression | SpreadElement>,...
 } & BaseNode
-export type AssignmentExpression = {
+declare export type AssignmentExpression = {
 type: "AssignmentExpression",
 operator: string,
 left: LVal,
 right: Expression,...
 } & BaseNode
-export type BinaryExpression = {
+declare export type BinaryExpression = {
 type: "BinaryExpression",
 operator: "+"
 | "-"
@@ -382,28 +382,28 @@ operator: "+"
 left: Expression | PrivateName,
 right: Expression,...
 } & BaseNode
-export type InterpreterDirective = {
+declare export type InterpreterDirective = {
 type: "InterpreterDirective",
 value: string,...
 } & BaseNode
-export type Directive = {
+declare export type Directive = {
 type: "Directive",
 value: DirectiveLiteral,...
 } & BaseNode
-export type DirectiveLiteral = {
+declare export type DirectiveLiteral = {
 type: "DirectiveLiteral",
 value: string,...
 } & BaseNode
-export type BlockStatement = {
+declare export type BlockStatement = {
 type: "BlockStatement",
 body: Array<Statement>,
 directives: Array<Directive>,...
 } & BaseNode
-export type BreakStatement = {
+declare export type BreakStatement = {
 type: "BreakStatement",
 label: Identifier | null,...
 } & BaseNode
-export type CallExpression = {
+declare export type CallExpression = {
 type: "CallExpression",
 callee: Expression | Super | V8IntrinsicIdentifier,
 arguments: Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder>,
@@ -411,56 +411,56 @@ optional: true | false | null,
 typeArguments: TypeParameterInstantiation | null,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type CatchClause = {
+declare export type CatchClause = {
 type: "CatchClause",
 param: Identifier | ArrayPattern | ObjectPattern | null,
 body: BlockStatement,...
 } & BaseNode
-export type ConditionalExpression = {
+declare export type ConditionalExpression = {
 type: "ConditionalExpression",
 test: Expression,
 consequent: Expression,
 alternate: Expression,...
 } & BaseNode
-export type ContinueStatement = {
+declare export type ContinueStatement = {
 type: "ContinueStatement",
 label: Identifier | null,...
 } & BaseNode
-export type DebuggerStatement = {
+declare export type DebuggerStatement = {
 type: "DebuggerStatement",...
 } & BaseNode
-export type DoWhileStatement = {
+declare export type DoWhileStatement = {
 type: "DoWhileStatement",
 test: Expression,
 body: Statement,...
 } & BaseNode
-export type EmptyStatement = {
+declare export type EmptyStatement = {
 type: "EmptyStatement",...
 } & BaseNode
-export type ExpressionStatement = {
+declare export type ExpressionStatement = {
 type: "ExpressionStatement",
 expression: Expression,...
 } & BaseNode
-export type File = {
+declare export type File = {
 type: "File",
 program: Program,
 comments: Array<CommentBlock | CommentLine> | null,
 tokens: Array<any> | null,...
 } & BaseNode
-export type ForInStatement = {
+declare export type ForInStatement = {
 type: "ForInStatement",
 left: VariableDeclaration | LVal,
 right: Expression,
 body: Statement,...
 } & BaseNode
-export type ForStatement = {
+declare export type ForStatement = {
 type: "ForStatement",
 init: VariableDeclaration | Expression | null,
 test: Expression | null,
 update: Expression | null,
 body: Statement,...
 } & BaseNode
-export type FunctionDeclaration = {
+declare export type FunctionDeclaration = {
 type: "FunctionDeclaration",
 id: Identifier | null,
 params: Array<Identifier | Pattern | RestElement>,
@@ -472,7 +472,7 @@ predicate: DeclaredPredicate | InferredPredicate | null,
 returnType: TypeAnnotation | TSTypeAnnotation | Noop | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type FunctionExpression = {
+declare export type FunctionExpression = {
 type: "FunctionExpression",
 id: Identifier | null,
 params: Array<Identifier | Pattern | RestElement>,
@@ -483,58 +483,58 @@ predicate: DeclaredPredicate | InferredPredicate | null,
 returnType: TypeAnnotation | TSTypeAnnotation | Noop | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type Identifier = {
+declare export type Identifier = {
 type: "Identifier",
 name: string,
 decorators: Array<Decorator> | null,
 optional: boolean | null,
 typeAnnotation: TypeAnnotation | TSTypeAnnotation | Noop | null,...
 } & BaseNode
-export type IfStatement = {
+declare export type IfStatement = {
 type: "IfStatement",
 test: Expression,
 consequent: Statement,
 alternate: Statement | null,...
 } & BaseNode
-export type LabeledStatement = {
+declare export type LabeledStatement = {
 type: "LabeledStatement",
 label: Identifier,
 body: Statement,...
 } & BaseNode
-export type StringLiteral = {
+declare export type StringLiteral = {
 type: "StringLiteral",
 value: string,...
 } & BaseNode
-export type NumericLiteral = {
+declare export type NumericLiteral = {
 type: "NumericLiteral",
 value: number,...
 } & BaseNode
-export type NullLiteral = {
+declare export type NullLiteral = {
 type: "NullLiteral",...
 } & BaseNode
-export type BooleanLiteral = {
+declare export type BooleanLiteral = {
 type: "BooleanLiteral",
 value: boolean,...
 } & BaseNode
-export type RegExpLiteral = {
+declare export type RegExpLiteral = {
 type: "RegExpLiteral",
 pattern: string,
 flags: string,...
 } & BaseNode
-export type LogicalExpression = {
+declare export type LogicalExpression = {
 type: "LogicalExpression",
 operator: "||" | "&&" | "??",
 left: Expression,
 right: Expression,...
 } & BaseNode
-export type MemberExpression = {
+declare export type MemberExpression = {
 type: "MemberExpression",
 object: Expression | Super,
 property: Expression | Identifier | PrivateName,
 computed: boolean,
 optional: true | false | null,...
 } & BaseNode
-export type NewExpression = {
+declare export type NewExpression = {
 type: "NewExpression",
 callee: Expression | Super | V8IntrinsicIdentifier,
 arguments: Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder>,
@@ -542,7 +542,7 @@ optional: true | false | null,
 typeArguments: TypeParameterInstantiation | null,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type Program = {
+declare export type Program = {
 type: "Program",
 body: Array<Statement>,
 directives: Array<Directive>,
@@ -550,11 +550,11 @@ sourceType: "script" | "module",
 interpreter: InterpreterDirective | null,
 sourceFile: string,...
 } & BaseNode
-export type ObjectExpression = {
+declare export type ObjectExpression = {
 type: "ObjectExpression",
 properties: Array<ObjectMethod | ObjectProperty | SpreadElement>,...
 } & BaseNode
-export type ObjectMethod = {
+declare export type ObjectMethod = {
 type: "ObjectMethod",
 kind: "method" | "get" | "set",
 key: Expression
@@ -571,7 +571,7 @@ decorators: Array<Decorator> | null,
 returnType: TypeAnnotation | TSTypeAnnotation | Noop | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type ObjectProperty = {
+declare export type ObjectProperty = {
 type: "ObjectProperty",
 key: Expression
 | Identifier
@@ -585,49 +585,49 @@ computed: boolean,
 shorthand: boolean,
 decorators: Array<Decorator> | null,...
 } & BaseNode
-export type RestElement = {
+declare export type RestElement = {
 type: "RestElement",
 argument: LVal,
 decorators: Array<Decorator> | null,
 optional: boolean | null,
 typeAnnotation: TypeAnnotation | TSTypeAnnotation | Noop | null,...
 } & BaseNode
-export type ReturnStatement = {
+declare export type ReturnStatement = {
 type: "ReturnStatement",
 argument: Expression | null,...
 } & BaseNode
-export type SequenceExpression = {
+declare export type SequenceExpression = {
 type: "SequenceExpression",
 expressions: Array<Expression>,...
 } & BaseNode
-export type ParenthesizedExpression = {
+declare export type ParenthesizedExpression = {
 type: "ParenthesizedExpression",
 expression: Expression,...
 } & BaseNode
-export type SwitchCase = {
+declare export type SwitchCase = {
 type: "SwitchCase",
 test: Expression | null,
 consequent: Array<Statement>,...
 } & BaseNode
-export type SwitchStatement = {
+declare export type SwitchStatement = {
 type: "SwitchStatement",
 discriminant: Expression,
 cases: Array<SwitchCase>,...
 } & BaseNode
-export type ThisExpression = {
+declare export type ThisExpression = {
 type: "ThisExpression",...
 } & BaseNode
-export type ThrowStatement = {
+declare export type ThrowStatement = {
 type: "ThrowStatement",
 argument: Expression,...
 } & BaseNode
-export type TryStatement = {
+declare export type TryStatement = {
 type: "TryStatement",
 block: BlockStatement,
 handler: CatchClause | null,
 finalizer: BlockStatement | null,...
 } & BaseNode
-export type UnaryExpression = {
+declare export type UnaryExpression = {
 type: "UnaryExpression",
 operator: "void"
 | "throw"
@@ -640,35 +640,35 @@ operator: "void"
 argument: Expression,
 prefix: boolean,...
 } & BaseNode
-export type UpdateExpression = {
+declare export type UpdateExpression = {
 type: "UpdateExpression",
 operator: "++" | "--",
 argument: Expression,
 prefix: boolean,...
 } & BaseNode
-export type VariableDeclaration = {
+declare export type VariableDeclaration = {
 type: "VariableDeclaration",
 kind: "var" | "let" | "const",
 declarations: Array<VariableDeclarator>,
 declare: boolean | null,...
 } & BaseNode
-export type VariableDeclarator = {
+declare export type VariableDeclarator = {
 type: "VariableDeclarator",
 id: LVal,
 init: Expression | null,
 definite: boolean | null,...
 } & BaseNode
-export type WhileStatement = {
+declare export type WhileStatement = {
 type: "WhileStatement",
 test: Expression,
 body: Statement,...
 } & BaseNode
-export type WithStatement = {
+declare export type WithStatement = {
 type: "WithStatement",
 object: Expression,
 body: Statement,...
 } & BaseNode
-export type AssignmentPattern = {
+declare export type AssignmentPattern = {
 type: "AssignmentPattern",
 left: Identifier
 | ObjectPattern
@@ -681,14 +681,14 @@ right: Expression,
 decorators: Array<Decorator> | null,
 typeAnnotation: TypeAnnotation | TSTypeAnnotation | Noop | null,...
 } & BaseNode
-export type ArrayPattern = {
+declare export type ArrayPattern = {
 type: "ArrayPattern",
 elements: Array<null | PatternLike | LVal>,
 decorators: Array<Decorator> | null,
 optional: boolean | null,
 typeAnnotation: TypeAnnotation | TSTypeAnnotation | Noop | null,...
 } & BaseNode
-export type ArrowFunctionExpression = {
+declare export type ArrowFunctionExpression = {
 type: "ArrowFunctionExpression",
 params: Array<Identifier | Pattern | RestElement>,
 body: BlockStatement | Expression,
@@ -699,7 +699,7 @@ predicate: DeclaredPredicate | InferredPredicate | null,
 returnType: TypeAnnotation | TSTypeAnnotation | Noop | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type ClassBody = {
+declare export type ClassBody = {
 type: "ClassBody",
 body: Array<ClassMethod
 | ClassPrivateMethod
@@ -710,7 +710,7 @@ body: Array<ClassMethod
 | TSIndexSignature
 | StaticBlock>,...
 } & BaseNode
-export type ClassExpression = {
+declare export type ClassExpression = {
 type: "ClassExpression",
 id: Identifier | null,
 superClass: Expression | null,
@@ -721,7 +721,7 @@ mixins: InterfaceExtends | null,
 superTypeParameters: TypeParameterInstantiation | TSTypeParameterInstantiation | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type ClassDeclaration = {
+declare export type ClassDeclaration = {
 type: "ClassDeclaration",
 id: Identifier,
 superClass: Expression | null,
@@ -734,18 +734,18 @@ mixins: InterfaceExtends | null,
 superTypeParameters: TypeParameterInstantiation | TSTypeParameterInstantiation | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type ExportAllDeclaration = {
+declare export type ExportAllDeclaration = {
 type: "ExportAllDeclaration",
 source: StringLiteral,
 assertions: Array<ImportAttribute> | null,
 exportKind: "type" | "value" | null,...
 } & BaseNode
-export type ExportDefaultDeclaration = {
+declare export type ExportDefaultDeclaration = {
 type: "ExportDefaultDeclaration",
 declaration: TSDeclareFunction | FunctionDeclaration | ClassDeclaration | Expression,
 exportKind: "value" | null,...
 } & BaseNode
-export type ExportNamedDeclaration = {
+declare export type ExportNamedDeclaration = {
 type: "ExportNamedDeclaration",
 declaration: Declaration | null,
 specifiers: Array<ExportSpecifier | ExportDefaultSpecifier | ExportNamespaceSpecifier>,
@@ -753,46 +753,46 @@ source: StringLiteral | null,
 assertions: Array<ImportAttribute> | null,
 exportKind: "type" | "value" | null,...
 } & BaseNode
-export type ExportSpecifier = {
+declare export type ExportSpecifier = {
 type: "ExportSpecifier",
 local: Identifier,
 exported: Identifier | StringLiteral,
 exportKind: "type" | "value" | null,...
 } & BaseNode
-export type ForOfStatement = {
+declare export type ForOfStatement = {
 type: "ForOfStatement",
 left: VariableDeclaration | LVal,
 right: Expression,
 body: Statement,
 await: boolean,...
 } & BaseNode
-export type ImportDeclaration = {
+declare export type ImportDeclaration = {
 type: "ImportDeclaration",
 specifiers: Array<ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier>,
 source: StringLiteral,
 assertions: Array<ImportAttribute> | null,
 importKind: "type" | "typeof" | "value" | null,...
 } & BaseNode
-export type ImportDefaultSpecifier = {
+declare export type ImportDefaultSpecifier = {
 type: "ImportDefaultSpecifier",
 local: Identifier,...
 } & BaseNode
-export type ImportNamespaceSpecifier = {
+declare export type ImportNamespaceSpecifier = {
 type: "ImportNamespaceSpecifier",
 local: Identifier,...
 } & BaseNode
-export type ImportSpecifier = {
+declare export type ImportSpecifier = {
 type: "ImportSpecifier",
 local: Identifier,
 imported: Identifier | StringLiteral,
 importKind: "type" | "typeof" | "value" | null,...
 } & BaseNode
-export type MetaProperty = {
+declare export type MetaProperty = {
 type: "MetaProperty",
 meta: Identifier,
 property: Identifier,...
 } & BaseNode
-export type ClassMethod = {
+declare export type ClassMethod = {
 type: "ClassMethod",
 kind: "get" | "set" | "method" | "constructor",
 key: Identifier
@@ -815,26 +815,26 @@ override: boolean,
 returnType: TypeAnnotation | TSTypeAnnotation | Noop | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type ObjectPattern = {
+declare export type ObjectPattern = {
 type: "ObjectPattern",
 properties: Array<RestElement | ObjectProperty>,
 decorators: Array<Decorator> | null,
 typeAnnotation: TypeAnnotation | TSTypeAnnotation | Noop | null,...
 } & BaseNode
-export type SpreadElement = {
+declare export type SpreadElement = {
 type: "SpreadElement",
 argument: Expression,...
 } & BaseNode
-export type Super = {
+declare export type Super = {
 type: "Super",...
 } & BaseNode
-export type TaggedTemplateExpression = {
+declare export type TaggedTemplateExpression = {
 type: "TaggedTemplateExpression",
 tag: Expression,
 quasi: TemplateLiteral,
 typeParameters: TypeParameterInstantiation | TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type TemplateElement = {
+declare export type TemplateElement = {
 type: "TemplateElement",
 value: {
 raw: string,
@@ -842,39 +842,39 @@ cooked?: string,...
 },
 tail: boolean,...
 } & BaseNode
-export type TemplateLiteral = {
+declare export type TemplateLiteral = {
 type: "TemplateLiteral",
 quasis: Array<TemplateElement>,
 expressions: Array<Expression | TSType>,...
 } & BaseNode
-export type YieldExpression = {
+declare export type YieldExpression = {
 type: "YieldExpression",
 argument: Expression | null,
 delegate: boolean,...
 } & BaseNode
-export type AwaitExpression = {
+declare export type AwaitExpression = {
 type: "AwaitExpression",
 argument: Expression,...
 } & BaseNode
-export type Import = {
+declare export type Import = {
 type: "Import",...
 } & BaseNode
-export type BigIntLiteral = {
+declare export type BigIntLiteral = {
 type: "BigIntLiteral",
 value: string,...
 } & BaseNode
-export type ExportNamespaceSpecifier = {
+declare export type ExportNamespaceSpecifier = {
 type: "ExportNamespaceSpecifier",
 exported: Identifier,...
 } & BaseNode
-export type OptionalMemberExpression = {
+declare export type OptionalMemberExpression = {
 type: "OptionalMemberExpression",
 object: Expression,
 property: Expression | Identifier,
 computed: boolean,
 optional: boolean,...
 } & BaseNode
-export type OptionalCallExpression = {
+declare export type OptionalCallExpression = {
 type: "OptionalCallExpression",
 callee: Expression,
 arguments: Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder>,
@@ -882,7 +882,7 @@ optional: boolean,
 typeArguments: TypeParameterInstantiation | null,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type ClassProperty = {
+declare export type ClassProperty = {
 type: "ClassProperty",
 key: Identifier
 | StringLiteral
@@ -903,7 +903,7 @@ override: boolean,
 readonly: boolean | null,
 variance: Variance | null,...
 } & BaseNode
-export type ClassAccessorProperty = {
+declare export type ClassAccessorProperty = {
 type: "ClassAccessorProperty",
 key: Identifier
 | StringLiteral
@@ -925,7 +925,7 @@ override: boolean,
 readonly: boolean | null,
 variance: Variance | null,...
 } & BaseNode
-export type ClassPrivateProperty = {
+declare export type ClassPrivateProperty = {
 type: "ClassPrivateProperty",
 key: PrivateName,
 value: Expression | null,
@@ -936,7 +936,7 @@ readonly: boolean | null,
 typeAnnotation: TypeAnnotation | TSTypeAnnotation | Noop | null,
 variance: Variance | null,...
 } & BaseNode
-export type ClassPrivateMethod = {
+declare export type ClassPrivateMethod = {
 type: "ClassPrivateMethod",
 kind: "get" | "set" | "method",
 key: PrivateName,
@@ -955,37 +955,37 @@ override: boolean,
 returnType: TypeAnnotation | TSTypeAnnotation | Noop | null,
 typeParameters: TypeParameterDeclaration | TSTypeParameterDeclaration | Noop | null,...
 } & BaseNode
-export type PrivateName = {
+declare export type PrivateName = {
 type: "PrivateName",
 id: Identifier,...
 } & BaseNode
-export type StaticBlock = {
+declare export type StaticBlock = {
 type: "StaticBlock",
 body: Array<Statement>,...
 } & BaseNode
-export type AnyTypeAnnotation = {
+declare export type AnyTypeAnnotation = {
 type: "AnyTypeAnnotation",...
 } & BaseNode
-export type ArrayTypeAnnotation = {
+declare export type ArrayTypeAnnotation = {
 type: "ArrayTypeAnnotation",
 elementType: FlowType,...
 } & BaseNode
-export type BooleanTypeAnnotation = {
+declare export type BooleanTypeAnnotation = {
 type: "BooleanTypeAnnotation",...
 } & BaseNode
-export type BooleanLiteralTypeAnnotation = {
+declare export type BooleanLiteralTypeAnnotation = {
 type: "BooleanLiteralTypeAnnotation",
 value: boolean,...
 } & BaseNode
-export type NullLiteralTypeAnnotation = {
+declare export type NullLiteralTypeAnnotation = {
 type: "NullLiteralTypeAnnotation",...
 } & BaseNode
-export type ClassImplements = {
+declare export type ClassImplements = {
 type: "ClassImplements",
 id: Identifier,
 typeParameters: TypeParameterInstantiation | null,...
 } & BaseNode
-export type DeclareClass = {
+declare export type DeclareClass = {
 type: "DeclareClass",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
@@ -994,12 +994,12 @@ body: ObjectTypeAnnotation,
 implements: Array<ClassImplements> | null,
 mixins: Array<InterfaceExtends> | null,...
 } & BaseNode
-export type DeclareFunction = {
+declare export type DeclareFunction = {
 type: "DeclareFunction",
 id: Identifier,
 predicate: DeclaredPredicate | null,...
 } & BaseNode
-export type DeclareInterface = {
+declare export type DeclareInterface = {
 type: "DeclareInterface",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
@@ -1008,53 +1008,53 @@ body: ObjectTypeAnnotation,
 implements: Array<ClassImplements> | null,
 mixins: Array<InterfaceExtends> | null,...
 } & BaseNode
-export type DeclareModule = {
+declare export type DeclareModule = {
 type: "DeclareModule",
 id: Identifier | StringLiteral,
 body: BlockStatement,
 kind: "CommonJS" | "ES" | null,...
 } & BaseNode
-export type DeclareModuleExports = {
+declare export type DeclareModuleExports = {
 type: "DeclareModuleExports",
 typeAnnotation: TypeAnnotation,...
 } & BaseNode
-export type DeclareTypeAlias = {
+declare export type DeclareTypeAlias = {
 type: "DeclareTypeAlias",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
 right: FlowType,...
 } & BaseNode
-export type DeclareOpaqueType = {
+declare export type DeclareOpaqueType = {
 type: "DeclareOpaqueType",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
 supertype: FlowType | null,
 impltype: FlowType | null,...
 } & BaseNode
-export type DeclareVariable = {
+declare export type DeclareVariable = {
 type: "DeclareVariable",
 id: Identifier,...
 } & BaseNode
-export type DeclareExportDeclaration = {
+declare export type DeclareExportDeclaration = {
 type: "DeclareExportDeclaration",
 declaration: Flow | null,
 specifiers: Array<ExportSpecifier | ExportNamespaceSpecifier> | null,
 source: StringLiteral | null,
 default: boolean | null,...
 } & BaseNode
-export type DeclareExportAllDeclaration = {
+declare export type DeclareExportAllDeclaration = {
 type: "DeclareExportAllDeclaration",
 source: StringLiteral,
 exportKind: "type" | "value" | null,...
 } & BaseNode
-export type DeclaredPredicate = {
+declare export type DeclaredPredicate = {
 type: "DeclaredPredicate",
 value: Flow,...
 } & BaseNode
-export type ExistsTypeAnnotation = {
+declare export type ExistsTypeAnnotation = {
 type: "ExistsTypeAnnotation",...
 } & BaseNode
-export type FunctionTypeAnnotation = {
+declare export type FunctionTypeAnnotation = {
 type: "FunctionTypeAnnotation",
 typeParameters: TypeParameterDeclaration | null,
 params: Array<FunctionTypeParam>,
@@ -1062,26 +1062,26 @@ rest: FunctionTypeParam | null,
 returnType: FlowType,
 this: FunctionTypeParam | null,...
 } & BaseNode
-export type FunctionTypeParam = {
+declare export type FunctionTypeParam = {
 type: "FunctionTypeParam",
 name: Identifier | null,
 typeAnnotation: FlowType,
 optional: boolean | null,...
 } & BaseNode
-export type GenericTypeAnnotation = {
+declare export type GenericTypeAnnotation = {
 type: "GenericTypeAnnotation",
 id: Identifier | QualifiedTypeIdentifier,
 typeParameters: TypeParameterInstantiation | null,...
 } & BaseNode
-export type InferredPredicate = {
+declare export type InferredPredicate = {
 type: "InferredPredicate",...
 } & BaseNode
-export type InterfaceExtends = {
+declare export type InterfaceExtends = {
 type: "InterfaceExtends",
 id: Identifier | QualifiedTypeIdentifier,
 typeParameters: TypeParameterInstantiation | null,...
 } & BaseNode
-export type InterfaceDeclaration = {
+declare export type InterfaceDeclaration = {
 type: "InterfaceDeclaration",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
@@ -1090,33 +1090,33 @@ body: ObjectTypeAnnotation,
 implements: Array<ClassImplements> | null,
 mixins: Array<InterfaceExtends> | null,...
 } & BaseNode
-export type InterfaceTypeAnnotation = {
+declare export type InterfaceTypeAnnotation = {
 type: "InterfaceTypeAnnotation",
 extends: Array<InterfaceExtends> | null,
 body: ObjectTypeAnnotation,...
 } & BaseNode
-export type IntersectionTypeAnnotation = {
+declare export type IntersectionTypeAnnotation = {
 type: "IntersectionTypeAnnotation",
 types: Array<FlowType>,...
 } & BaseNode
-export type MixedTypeAnnotation = {
+declare export type MixedTypeAnnotation = {
 type: "MixedTypeAnnotation",...
 } & BaseNode
-export type EmptyTypeAnnotation = {
+declare export type EmptyTypeAnnotation = {
 type: "EmptyTypeAnnotation",...
 } & BaseNode
-export type NullableTypeAnnotation = {
+declare export type NullableTypeAnnotation = {
 type: "NullableTypeAnnotation",
 typeAnnotation: FlowType,...
 } & BaseNode
-export type NumberLiteralTypeAnnotation = {
+declare export type NumberLiteralTypeAnnotation = {
 type: "NumberLiteralTypeAnnotation",
 value: number,...
 } & BaseNode
-export type NumberTypeAnnotation = {
+declare export type NumberTypeAnnotation = {
 type: "NumberTypeAnnotation",...
 } & BaseNode
-export type ObjectTypeAnnotation = {
+declare export type ObjectTypeAnnotation = {
 type: "ObjectTypeAnnotation",
 properties: Array<ObjectTypeProperty | ObjectTypeSpreadProperty>,
 indexers: Array<ObjectTypeIndexer>,
@@ -1125,7 +1125,7 @@ internalSlots: Array<ObjectTypeInternalSlot>,
 exact: boolean,
 inexact: boolean | null,...
 } & BaseNode
-export type ObjectTypeInternalSlot = {
+declare export type ObjectTypeInternalSlot = {
 type: "ObjectTypeInternalSlot",
 id: Identifier,
 value: FlowType,
@@ -1133,12 +1133,12 @@ optional: boolean,
 static: boolean,
 method: boolean,...
 } & BaseNode
-export type ObjectTypeCallProperty = {
+declare export type ObjectTypeCallProperty = {
 type: "ObjectTypeCallProperty",
 value: FlowType,
 static: boolean,...
 } & BaseNode
-export type ObjectTypeIndexer = {
+declare export type ObjectTypeIndexer = {
 type: "ObjectTypeIndexer",
 id: Identifier | null,
 key: FlowType,
@@ -1146,7 +1146,7 @@ value: FlowType,
 variance: Variance | null,
 static: boolean,...
 } & BaseNode
-export type ObjectTypeProperty = {
+declare export type ObjectTypeProperty = {
 type: "ObjectTypeProperty",
 key: Identifier | StringLiteral,
 value: FlowType,
@@ -1157,143 +1157,143 @@ optional: boolean,
 proto: boolean,
 static: boolean,...
 } & BaseNode
-export type ObjectTypeSpreadProperty = {
+declare export type ObjectTypeSpreadProperty = {
 type: "ObjectTypeSpreadProperty",
 argument: FlowType,...
 } & BaseNode
-export type OpaqueType = {
+declare export type OpaqueType = {
 type: "OpaqueType",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
 supertype: FlowType | null,
 impltype: FlowType,...
 } & BaseNode
-export type QualifiedTypeIdentifier = {
+declare export type QualifiedTypeIdentifier = {
 type: "QualifiedTypeIdentifier",
 id: Identifier,
 qualification: Identifier | QualifiedTypeIdentifier,...
 } & BaseNode
-export type StringLiteralTypeAnnotation = {
+declare export type StringLiteralTypeAnnotation = {
 type: "StringLiteralTypeAnnotation",
 value: string,...
 } & BaseNode
-export type StringTypeAnnotation = {
+declare export type StringTypeAnnotation = {
 type: "StringTypeAnnotation",...
 } & BaseNode
-export type SymbolTypeAnnotation = {
+declare export type SymbolTypeAnnotation = {
 type: "SymbolTypeAnnotation",...
 } & BaseNode
-export type ThisTypeAnnotation = {
+declare export type ThisTypeAnnotation = {
 type: "ThisTypeAnnotation",...
 } & BaseNode
-export type TupleTypeAnnotation = {
+declare export type TupleTypeAnnotation = {
 type: "TupleTypeAnnotation",
 types: Array<FlowType>,...
 } & BaseNode
-export type TypeofTypeAnnotation = {
+declare export type TypeofTypeAnnotation = {
 type: "TypeofTypeAnnotation",
 argument: FlowType,...
 } & BaseNode
-export type TypeAlias = {
+declare export type TypeAlias = {
 type: "TypeAlias",
 id: Identifier,
 typeParameters: TypeParameterDeclaration | null,
 right: FlowType,...
 } & BaseNode
-export type TypeAnnotation = {
+declare export type TypeAnnotation = {
 type: "TypeAnnotation",
 typeAnnotation: FlowType,...
 } & BaseNode
-export type TypeCastExpression = {
+declare export type TypeCastExpression = {
 type: "TypeCastExpression",
 expression: Expression,
 typeAnnotation: TypeAnnotation,...
 } & BaseNode
-export type TypeParameter = {
+declare export type TypeParameter = {
 type: "TypeParameter",
 bound: TypeAnnotation | null,
 default: FlowType | null,
 variance: Variance | null,
 name: string,...
 } & BaseNode
-export type TypeParameterDeclaration = {
+declare export type TypeParameterDeclaration = {
 type: "TypeParameterDeclaration",
 params: Array<TypeParameter>,...
 } & BaseNode
-export type TypeParameterInstantiation = {
+declare export type TypeParameterInstantiation = {
 type: "TypeParameterInstantiation",
 params: Array<FlowType>,...
 } & BaseNode
-export type UnionTypeAnnotation = {
+declare export type UnionTypeAnnotation = {
 type: "UnionTypeAnnotation",
 types: Array<FlowType>,...
 } & BaseNode
-export type Variance = {
+declare export type Variance = {
 type: "Variance",
 kind: "minus" | "plus",...
 } & BaseNode
-export type VoidTypeAnnotation = {
+declare export type VoidTypeAnnotation = {
 type: "VoidTypeAnnotation",...
 } & BaseNode
-export type EnumDeclaration = {
+declare export type EnumDeclaration = {
 type: "EnumDeclaration",
 id: Identifier,
 body: EnumBooleanBody | EnumNumberBody | EnumStringBody | EnumSymbolBody,...
 } & BaseNode
-export type EnumBooleanBody = {
+declare export type EnumBooleanBody = {
 type: "EnumBooleanBody",
 members: Array<EnumBooleanMember>,
 explicitType: boolean,
 hasUnknownMembers: boolean,...
 } & BaseNode
-export type EnumNumberBody = {
+declare export type EnumNumberBody = {
 type: "EnumNumberBody",
 members: Array<EnumNumberMember>,
 explicitType: boolean,
 hasUnknownMembers: boolean,...
 } & BaseNode
-export type EnumStringBody = {
+declare export type EnumStringBody = {
 type: "EnumStringBody",
 members: Array<EnumStringMember | EnumDefaultedMember>,
 explicitType: boolean,
 hasUnknownMembers: boolean,...
 } & BaseNode
-export type EnumSymbolBody = {
+declare export type EnumSymbolBody = {
 type: "EnumSymbolBody",
 members: Array<EnumDefaultedMember>,
 hasUnknownMembers: boolean,...
 } & BaseNode
-export type EnumBooleanMember = {
+declare export type EnumBooleanMember = {
 type: "EnumBooleanMember",
 id: Identifier,
 init: BooleanLiteral,...
 } & BaseNode
-export type EnumNumberMember = {
+declare export type EnumNumberMember = {
 type: "EnumNumberMember",
 id: Identifier,
 init: NumericLiteral,...
 } & BaseNode
-export type EnumStringMember = {
+declare export type EnumStringMember = {
 type: "EnumStringMember",
 id: Identifier,
 init: StringLiteral,...
 } & BaseNode
-export type EnumDefaultedMember = {
+declare export type EnumDefaultedMember = {
 type: "EnumDefaultedMember",
 id: Identifier,...
 } & BaseNode
-export type IndexedAccessType = {
+declare export type IndexedAccessType = {
 type: "IndexedAccessType",
 objectType: FlowType,
 indexType: FlowType,...
 } & BaseNode
-export type OptionalIndexedAccessType = {
+declare export type OptionalIndexedAccessType = {
 type: "OptionalIndexedAccessType",
 objectType: FlowType,
 indexType: FlowType,
 optional: boolean,...
 } & BaseNode
-export type JSXAttribute = {
+declare export type JSXAttribute = {
 type: "JSXAttribute",
 name: JSXIdentifier | JSXNamespacedName,
 value: JSXElement
@@ -1302,11 +1302,11 @@ value: JSXElement
 | JSXExpressionContainer
 | null,...
 } & BaseNode
-export type JSXClosingElement = {
+declare export type JSXClosingElement = {
 type: "JSXClosingElement",
 name: JSXIdentifier | JSXMemberExpression | JSXNamespacedName,...
 } & BaseNode
-export type JSXElement = {
+declare export type JSXElement = {
 type: "JSXElement",
 openingElement: JSXOpeningElement,
 closingElement: JSXClosingElement | null,
@@ -1317,47 +1317,47 @@ children: Array<JSXText
 | JSXFragment>,
 selfClosing: boolean | null,...
 } & BaseNode
-export type JSXEmptyExpression = {
+declare export type JSXEmptyExpression = {
 type: "JSXEmptyExpression",...
 } & BaseNode
-export type JSXExpressionContainer = {
+declare export type JSXExpressionContainer = {
 type: "JSXExpressionContainer",
 expression: Expression | JSXEmptyExpression,...
 } & BaseNode
-export type JSXSpreadChild = {
+declare export type JSXSpreadChild = {
 type: "JSXSpreadChild",
 expression: Expression,...
 } & BaseNode
-export type JSXIdentifier = {
+declare export type JSXIdentifier = {
 type: "JSXIdentifier",
 name: string,...
 } & BaseNode
-export type JSXMemberExpression = {
+declare export type JSXMemberExpression = {
 type: "JSXMemberExpression",
 object: JSXMemberExpression | JSXIdentifier,
 property: JSXIdentifier,...
 } & BaseNode
-export type JSXNamespacedName = {
+declare export type JSXNamespacedName = {
 type: "JSXNamespacedName",
 namespace: JSXIdentifier,
 name: JSXIdentifier,...
 } & BaseNode
-export type JSXOpeningElement = {
+declare export type JSXOpeningElement = {
 type: "JSXOpeningElement",
 name: JSXIdentifier | JSXMemberExpression | JSXNamespacedName,
 attributes: Array<JSXAttribute | JSXSpreadAttribute>,
 selfClosing: boolean,
 typeParameters: TypeParameterInstantiation | TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type JSXSpreadAttribute = {
+declare export type JSXSpreadAttribute = {
 type: "JSXSpreadAttribute",
 argument: Expression,...
 } & BaseNode
-export type JSXText = {
+declare export type JSXText = {
 type: "JSXText",
 value: string,...
 } & BaseNode
-export type JSXFragment = {
+declare export type JSXFragment = {
 type: "JSXFragment",
 openingFragment: JSXOpeningFragment,
 closingFragment: JSXClosingFragment,
@@ -1367,16 +1367,16 @@ children: Array<JSXText
 | JSXElement
 | JSXFragment>,...
 } & BaseNode
-export type JSXOpeningFragment = {
+declare export type JSXOpeningFragment = {
 type: "JSXOpeningFragment",...
 } & BaseNode
-export type JSXClosingFragment = {
+declare export type JSXClosingFragment = {
 type: "JSXClosingFragment",...
 } & BaseNode
-export type Noop = {
+declare export type Noop = {
 type: "Noop",...
 } & BaseNode
-export type Placeholder = {
+declare export type Placeholder = {
 type: "Placeholder",
 expectedNode: "Identifier"
 | "StringLiteral"
@@ -1388,67 +1388,67 @@ expectedNode: "Identifier"
 | "Pattern",
 name: Identifier,...
 } & BaseNode
-export type V8IntrinsicIdentifier = {
+declare export type V8IntrinsicIdentifier = {
 type: "V8IntrinsicIdentifier",
 name: string,...
 } & BaseNode
-export type ArgumentPlaceholder = {
+declare export type ArgumentPlaceholder = {
 type: "ArgumentPlaceholder",...
 } & BaseNode
-export type BindExpression = {
+declare export type BindExpression = {
 type: "BindExpression",
 object: Expression,
 callee: Expression,...
 } & BaseNode
-export type ImportAttribute = {
+declare export type ImportAttribute = {
 type: "ImportAttribute",
 key: Identifier | StringLiteral,
 value: StringLiteral,...
 } & BaseNode
-export type Decorator = {
+declare export type Decorator = {
 type: "Decorator",
 expression: Expression,...
 } & BaseNode
-export type DoExpression = {
+declare export type DoExpression = {
 type: "DoExpression",
 body: BlockStatement,
 async: boolean,...
 } & BaseNode
-export type ExportDefaultSpecifier = {
+declare export type ExportDefaultSpecifier = {
 type: "ExportDefaultSpecifier",
 exported: Identifier,...
 } & BaseNode
-export type RecordExpression = {
+declare export type RecordExpression = {
 type: "RecordExpression",
 properties: Array<ObjectProperty | SpreadElement>,...
 } & BaseNode
-export type TupleExpression = {
+declare export type TupleExpression = {
 type: "TupleExpression",
 elements: Array<Expression | SpreadElement>,...
 } & BaseNode
-export type DecimalLiteral = {
+declare export type DecimalLiteral = {
 type: "DecimalLiteral",
 value: string,...
 } & BaseNode
-export type ModuleExpression = {
+declare export type ModuleExpression = {
 type: "ModuleExpression",
 body: Program,...
 } & BaseNode
-export type TopicReference = {
+declare export type TopicReference = {
 type: "TopicReference",...
 } & BaseNode
-export type PipelineTopicExpression = {
+declare export type PipelineTopicExpression = {
 type: "PipelineTopicExpression",
 expression: Expression,...
 } & BaseNode
-export type PipelineBareFunction = {
+declare export type PipelineBareFunction = {
 type: "PipelineBareFunction",
 callee: Expression,...
 } & BaseNode
-export type PipelinePrimaryTopicReference = {
+declare export type PipelinePrimaryTopicReference = {
 type: "PipelinePrimaryTopicReference",...
 } & BaseNode
-export type TSParameterProperty = {
+declare export type TSParameterProperty = {
 type: "TSParameterProperty",
 parameter: Identifier | AssignmentPattern,
 accessibility: "public" | "private" | "protected" | null,
@@ -1456,7 +1456,7 @@ decorators: Array<Decorator> | null,
 override: boolean | null,
 readonly: boolean | null,...
 } & BaseNode
-export type TSDeclareFunction = {
+declare export type TSDeclareFunction = {
 type: "TSDeclareFunction",
 id: Identifier | null,
 typeParameters: TSTypeParameterDeclaration | Noop | null,
@@ -1466,7 +1466,7 @@ async: boolean,
 declare: boolean | null,
 generator: boolean,...
 } & BaseNode
-export type TSDeclareMethod = {
+declare export type TSDeclareMethod = {
 type: "TSDeclareMethod",
 decorators: Array<Decorator> | null,
 key: Identifier
@@ -1488,24 +1488,24 @@ optional: boolean | null,
 override: boolean,
 static: boolean,...
 } & BaseNode
-export type TSQualifiedName = {
+declare export type TSQualifiedName = {
 type: "TSQualifiedName",
 left: TSEntityName,
 right: Identifier,...
 } & BaseNode
-export type TSCallSignatureDeclaration = {
+declare export type TSCallSignatureDeclaration = {
 type: "TSCallSignatureDeclaration",
 typeParameters: TSTypeParameterDeclaration | null,
 parameters: Array<Identifier | RestElement>,
 typeAnnotation: TSTypeAnnotation | null,...
 } & BaseNode
-export type TSConstructSignatureDeclaration = {
+declare export type TSConstructSignatureDeclaration = {
 type: "TSConstructSignatureDeclaration",
 typeParameters: TSTypeParameterDeclaration | null,
 parameters: Array<Identifier | RestElement>,
 typeAnnotation: TSTypeAnnotation | null,...
 } & BaseNode
-export type TSPropertySignature = {
+declare export type TSPropertySignature = {
 type: "TSPropertySignature",
 key: Expression,
 typeAnnotation: TSTypeAnnotation | null,
@@ -1515,7 +1515,7 @@ kind: "get" | "set",
 optional: boolean | null,
 readonly: boolean | null,...
 } & BaseNode
-export type TSMethodSignature = {
+declare export type TSMethodSignature = {
 type: "TSMethodSignature",
 key: Expression,
 typeParameters: TSTypeParameterDeclaration | null,
@@ -1525,144 +1525,144 @@ computed: boolean,
 kind: "method" | "get" | "set",
 optional: boolean | null,...
 } & BaseNode
-export type TSIndexSignature = {
+declare export type TSIndexSignature = {
 type: "TSIndexSignature",
 parameters: Array<Identifier>,
 typeAnnotation: TSTypeAnnotation | null,
 readonly: boolean | null,
 static: boolean | null,...
 } & BaseNode
-export type TSAnyKeyword = {
+declare export type TSAnyKeyword = {
 type: "TSAnyKeyword",...
 } & BaseNode
-export type TSBooleanKeyword = {
+declare export type TSBooleanKeyword = {
 type: "TSBooleanKeyword",...
 } & BaseNode
-export type TSBigIntKeyword = {
+declare export type TSBigIntKeyword = {
 type: "TSBigIntKeyword",...
 } & BaseNode
-export type TSIntrinsicKeyword = {
+declare export type TSIntrinsicKeyword = {
 type: "TSIntrinsicKeyword",...
 } & BaseNode
-export type TSNeverKeyword = {
+declare export type TSNeverKeyword = {
 type: "TSNeverKeyword",...
 } & BaseNode
-export type TSNullKeyword = {
+declare export type TSNullKeyword = {
 type: "TSNullKeyword",...
 } & BaseNode
-export type TSNumberKeyword = {
+declare export type TSNumberKeyword = {
 type: "TSNumberKeyword",...
 } & BaseNode
-export type TSObjectKeyword = {
+declare export type TSObjectKeyword = {
 type: "TSObjectKeyword",...
 } & BaseNode
-export type TSStringKeyword = {
+declare export type TSStringKeyword = {
 type: "TSStringKeyword",...
 } & BaseNode
-export type TSSymbolKeyword = {
+declare export type TSSymbolKeyword = {
 type: "TSSymbolKeyword",...
 } & BaseNode
-export type TSUndefinedKeyword = {
+declare export type TSUndefinedKeyword = {
 type: "TSUndefinedKeyword",...
 } & BaseNode
-export type TSUnknownKeyword = {
+declare export type TSUnknownKeyword = {
 type: "TSUnknownKeyword",...
 } & BaseNode
-export type TSVoidKeyword = {
+declare export type TSVoidKeyword = {
 type: "TSVoidKeyword",...
 } & BaseNode
-export type TSThisType = {
+declare export type TSThisType = {
 type: "TSThisType",...
 } & BaseNode
-export type TSFunctionType = {
+declare export type TSFunctionType = {
 type: "TSFunctionType",
 typeParameters: TSTypeParameterDeclaration | null,
 parameters: Array<Identifier | RestElement>,
 typeAnnotation: TSTypeAnnotation | null,...
 } & BaseNode
-export type TSConstructorType = {
+declare export type TSConstructorType = {
 type: "TSConstructorType",
 typeParameters: TSTypeParameterDeclaration | null,
 parameters: Array<Identifier | RestElement>,
 typeAnnotation: TSTypeAnnotation | null,
 abstract: boolean | null,...
 } & BaseNode
-export type TSTypeReference = {
+declare export type TSTypeReference = {
 type: "TSTypeReference",
 typeName: TSEntityName,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type TSTypePredicate = {
+declare export type TSTypePredicate = {
 type: "TSTypePredicate",
 parameterName: Identifier | TSThisType,
 typeAnnotation: TSTypeAnnotation | null,
 asserts: boolean | null,...
 } & BaseNode
-export type TSTypeQuery = {
+declare export type TSTypeQuery = {
 type: "TSTypeQuery",
 exprName: TSEntityName | TSImportType,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type TSTypeLiteral = {
+declare export type TSTypeLiteral = {
 type: "TSTypeLiteral",
 members: Array<TSTypeElement>,...
 } & BaseNode
-export type TSArrayType = {
+declare export type TSArrayType = {
 type: "TSArrayType",
 elementType: TSType,...
 } & BaseNode
-export type TSTupleType = {
+declare export type TSTupleType = {
 type: "TSTupleType",
 elementTypes: Array<TSType | TSNamedTupleMember>,...
 } & BaseNode
-export type TSOptionalType = {
+declare export type TSOptionalType = {
 type: "TSOptionalType",
 typeAnnotation: TSType,...
 } & BaseNode
-export type TSRestType = {
+declare export type TSRestType = {
 type: "TSRestType",
 typeAnnotation: TSType,...
 } & BaseNode
-export type TSNamedTupleMember = {
+declare export type TSNamedTupleMember = {
 type: "TSNamedTupleMember",
 label: Identifier,
 elementType: TSType,
 optional: boolean,...
 } & BaseNode
-export type TSUnionType = {
+declare export type TSUnionType = {
 type: "TSUnionType",
 types: Array<TSType>,...
 } & BaseNode
-export type TSIntersectionType = {
+declare export type TSIntersectionType = {
 type: "TSIntersectionType",
 types: Array<TSType>,...
 } & BaseNode
-export type TSConditionalType = {
+declare export type TSConditionalType = {
 type: "TSConditionalType",
 checkType: TSType,
 extendsType: TSType,
 trueType: TSType,
 falseType: TSType,...
 } & BaseNode
-export type TSInferType = {
+declare export type TSInferType = {
 type: "TSInferType",
 typeParameter: TSTypeParameter,...
 } & BaseNode
-export type TSParenthesizedType = {
+declare export type TSParenthesizedType = {
 type: "TSParenthesizedType",
 typeAnnotation: TSType,...
 } & BaseNode
-export type TSTypeOperator = {
+declare export type TSTypeOperator = {
 type: "TSTypeOperator",
 typeAnnotation: TSType,
 operator: string,...
 } & BaseNode
-export type TSIndexedAccessType = {
+declare export type TSIndexedAccessType = {
 type: "TSIndexedAccessType",
 objectType: TSType,
 indexType: TSType,...
 } & BaseNode
-export type TSMappedType = {
+declare export type TSMappedType = {
 type: "TSMappedType",
 typeParameter: TSTypeParameter,
 typeAnnotation: TSType | null,
@@ -1678,7 +1678,7 @@ readonly: true
 | "-"
 | null,...
 } & BaseNode
-export type TSLiteralType = {
+declare export type TSLiteralType = {
 type: "TSLiteralType",
 literal: NumericLiteral
 | StringLiteral
@@ -1687,12 +1687,12 @@ literal: NumericLiteral
 | TemplateLiteral
 | UnaryExpression,...
 } & BaseNode
-export type TSExpressionWithTypeArguments = {
+declare export type TSExpressionWithTypeArguments = {
 type: "TSExpressionWithTypeArguments",
 expression: TSEntityName,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type TSInterfaceDeclaration = {
+declare export type TSInterfaceDeclaration = {
 type: "TSInterfaceDeclaration",
 id: Identifier,
 typeParameters: TSTypeParameterDeclaration | null,
@@ -1700,33 +1700,33 @@ extends: Array<TSExpressionWithTypeArguments> | null,
 body: TSInterfaceBody,
 declare: boolean | null,...
 } & BaseNode
-export type TSInterfaceBody = {
+declare export type TSInterfaceBody = {
 type: "TSInterfaceBody",
 body: Array<TSTypeElement>,...
 } & BaseNode
-export type TSTypeAliasDeclaration = {
+declare export type TSTypeAliasDeclaration = {
 type: "TSTypeAliasDeclaration",
 id: Identifier,
 typeParameters: TSTypeParameterDeclaration | null,
 typeAnnotation: TSType,
 declare: boolean | null,...
 } & BaseNode
-export type TSInstantiationExpression = {
+declare export type TSInstantiationExpression = {
 type: "TSInstantiationExpression",
 expression: Expression,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type TSAsExpression = {
+declare export type TSAsExpression = {
 type: "TSAsExpression",
 expression: Expression,
 typeAnnotation: TSType,...
 } & BaseNode
-export type TSTypeAssertion = {
+declare export type TSTypeAssertion = {
 type: "TSTypeAssertion",
 typeAnnotation: TSType,
 expression: Expression,...
 } & BaseNode
-export type TSEnumDeclaration = {
+declare export type TSEnumDeclaration = {
 type: "TSEnumDeclaration",
 id: Identifier,
 members: Array<TSEnumMember>,
@@ -1734,64 +1734,64 @@ const: boolean | null,
 declare: boolean | null,
 initializer: Expression | null,...
 } & BaseNode
-export type TSEnumMember = {
+declare export type TSEnumMember = {
 type: "TSEnumMember",
 id: Identifier | StringLiteral,
 initializer: Expression | null,...
 } & BaseNode
-export type TSModuleDeclaration = {
+declare export type TSModuleDeclaration = {
 type: "TSModuleDeclaration",
 id: Identifier | StringLiteral,
 body: TSModuleBlock | TSModuleDeclaration,
 declare: boolean | null,
 global: boolean | null,...
 } & BaseNode
-export type TSModuleBlock = {
+declare export type TSModuleBlock = {
 type: "TSModuleBlock",
 body: Array<Statement>,...
 } & BaseNode
-export type TSImportType = {
+declare export type TSImportType = {
 type: "TSImportType",
 argument: StringLiteral,
 qualifier: TSEntityName | null,
 typeParameters: TSTypeParameterInstantiation | null,...
 } & BaseNode
-export type TSImportEqualsDeclaration = {
+declare export type TSImportEqualsDeclaration = {
 type: "TSImportEqualsDeclaration",
 id: Identifier,
 moduleReference: TSEntityName | TSExternalModuleReference,
 importKind: "type" | "value" | null,
 isExport: boolean,...
 } & BaseNode
-export type TSExternalModuleReference = {
+declare export type TSExternalModuleReference = {
 type: "TSExternalModuleReference",
 expression: StringLiteral,...
 } & BaseNode
-export type TSNonNullExpression = {
+declare export type TSNonNullExpression = {
 type: "TSNonNullExpression",
 expression: Expression,...
 } & BaseNode
-export type TSExportAssignment = {
+declare export type TSExportAssignment = {
 type: "TSExportAssignment",
 expression: Expression,...
 } & BaseNode
-export type TSNamespaceExportDeclaration = {
+declare export type TSNamespaceExportDeclaration = {
 type: "TSNamespaceExportDeclaration",
 id: Identifier,...
 } & BaseNode
-export type TSTypeAnnotation = {
+declare export type TSTypeAnnotation = {
 type: "TSTypeAnnotation",
 typeAnnotation: TSType,...
 } & BaseNode
-export type TSTypeParameterInstantiation = {
+declare export type TSTypeParameterInstantiation = {
 type: "TSTypeParameterInstantiation",
 params: Array<TSType>,...
 } & BaseNode
-export type TSTypeParameterDeclaration = {
+declare export type TSTypeParameterDeclaration = {
 type: "TSTypeParameterDeclaration",
 params: Array<TSTypeParameter>,...
 } & BaseNode
-export type TSTypeParameter = {
+declare export type TSTypeParameter = {
 type: "TSTypeParameter",
 constraint: TSType | null,
 default: TSType | null,
@@ -1803,19 +1803,19 @@ out: boolean | null,...
 /**
  * @deprecated Use `NumericLiteral`
  */
-export type NumberLiteral = NumericLiteral;
+declare export type NumberLiteral = NumericLiteral;
 /**
  * @deprecated Use `RegExpLiteral`
  */
-export type RegexLiteral = RegExpLiteral;
+declare export type RegexLiteral = RegExpLiteral;
 /**
  * @deprecated Use `RestElement`
  */
-export type RestProperty = RestElement;
+declare export type RestProperty = RestElement;
 /**
  * @deprecated Use `SpreadElement`
  */
-export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpression
+declare export type SpreadProperty = SpreadElement;declare export type Standardized = ArrayExpression
 | AssignmentExpression
 | BinaryExpression
 | InterpreterDirective
@@ -1901,7 +1901,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | ClassPrivateProperty
 | ClassPrivateMethod
 | PrivateName
-| StaticBlock;export type Expression = ArrayExpression
+| StaticBlock;declare export type Expression = ArrayExpression
 | AssignmentExpression
 | BinaryExpression
 | CallExpression
@@ -1950,7 +1950,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSInstantiationExpression
 | TSAsExpression
 | TSTypeAssertion
-| TSNonNullExpression;export type Binary = BinaryExpression | LogicalExpression;export type Scopable = BlockStatement
+| TSNonNullExpression;declare export type Binary = BinaryExpression | LogicalExpression;declare export type Scopable = BlockStatement
 | CatchClause
 | DoWhileStatement
 | ForInStatement
@@ -1968,7 +1968,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | ClassMethod
 | ClassPrivateMethod
 | StaticBlock
-| TSModuleBlock;export type BlockParent = BlockStatement
+| TSModuleBlock;declare export type BlockParent = BlockStatement
 | CatchClause
 | DoWhileStatement
 | ForInStatement
@@ -1984,7 +1984,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | ClassMethod
 | ClassPrivateMethod
 | StaticBlock
-| TSModuleBlock;export type Block = BlockStatement | Program | TSModuleBlock;export type Statement = BlockStatement
+| TSModuleBlock;declare export type Block = BlockStatement | Program | TSModuleBlock;declare export type Statement = BlockStatement
 | BreakStatement
 | ContinueStatement
 | DebuggerStatement
@@ -2030,27 +2030,27 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSModuleDeclaration
 | TSImportEqualsDeclaration
 | TSExportAssignment
-| TSNamespaceExportDeclaration;export type Terminatorless = BreakStatement
+| TSNamespaceExportDeclaration;declare export type Terminatorless = BreakStatement
 | ContinueStatement
 | ReturnStatement
 | ThrowStatement
 | YieldExpression
-| AwaitExpression;export type CompletionStatement = BreakStatement | ContinueStatement | ReturnStatement | ThrowStatement;export type Conditional = ConditionalExpression | IfStatement;export type Loop = DoWhileStatement
+| AwaitExpression;declare export type CompletionStatement = BreakStatement | ContinueStatement | ReturnStatement | ThrowStatement;declare export type Conditional = ConditionalExpression | IfStatement;declare export type Loop = DoWhileStatement
 | ForInStatement
 | ForStatement
 | WhileStatement
-| ForOfStatement;export type While = DoWhileStatement | WhileStatement;export type ExpressionWrapper = ExpressionStatement | ParenthesizedExpression | TypeCastExpression;export type For = ForInStatement | ForStatement | ForOfStatement;export type ForXStatement = ForInStatement | ForOfStatement;export type Function = FunctionDeclaration
+| ForOfStatement;declare export type While = DoWhileStatement | WhileStatement;declare export type ExpressionWrapper = ExpressionStatement | ParenthesizedExpression | TypeCastExpression;declare export type For = ForInStatement | ForStatement | ForOfStatement;declare export type ForXStatement = ForInStatement | ForOfStatement;declare export type Function = FunctionDeclaration
 | FunctionExpression
 | ObjectMethod
 | ArrowFunctionExpression
 | ClassMethod
-| ClassPrivateMethod;export type FunctionParent = FunctionDeclaration
+| ClassPrivateMethod;declare export type FunctionParent = FunctionDeclaration
 | FunctionExpression
 | ObjectMethod
 | ArrowFunctionExpression
 | ClassMethod
 | ClassPrivateMethod
-| StaticBlock;export type Pureish = FunctionDeclaration
+| StaticBlock;declare export type Pureish = FunctionDeclaration
 | FunctionExpression
 | StringLiteral
 | NumericLiteral
@@ -2059,7 +2059,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | RegExpLiteral
 | ArrowFunctionExpression
 | BigIntLiteral
-| DecimalLiteral;export type Declaration = FunctionDeclaration
+| DecimalLiteral;declare export type Declaration = FunctionDeclaration
 | VariableDeclaration
 | ClassDeclaration
 | ExportAllDeclaration
@@ -2084,14 +2084,14 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSInterfaceDeclaration
 | TSTypeAliasDeclaration
 | TSEnumDeclaration
-| TSModuleDeclaration;export type PatternLike = Identifier
+| TSModuleDeclaration;declare export type PatternLike = Identifier
 | RestElement
 | AssignmentPattern
 | ArrayPattern
 | ObjectPattern
 | TSAsExpression
 | TSTypeAssertion
-| TSNonNullExpression;export type LVal = Identifier
+| TSNonNullExpression;declare export type LVal = Identifier
 | MemberExpression
 | RestElement
 | AssignmentPattern
@@ -2100,14 +2100,14 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSParameterProperty
 | TSAsExpression
 | TSTypeAssertion
-| TSNonNullExpression;export type TSEntityName = Identifier | TSQualifiedName;export type Literal = StringLiteral
+| TSNonNullExpression;declare export type TSEntityName = Identifier | TSQualifiedName;declare export type Literal = StringLiteral
 | NumericLiteral
 | NullLiteral
 | BooleanLiteral
 | RegExpLiteral
 | TemplateLiteral
 | BigIntLiteral
-| DecimalLiteral;export type Immutable = StringLiteral
+| DecimalLiteral;declare export type Immutable = StringLiteral
 | NumericLiteral
 | NullLiteral
 | BooleanLiteral
@@ -2122,18 +2122,18 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | JSXFragment
 | JSXOpeningFragment
 | JSXClosingFragment
-| DecimalLiteral;export type UserWhitespacable = ObjectMethod
+| DecimalLiteral;declare export type UserWhitespacable = ObjectMethod
 | ObjectProperty
 | ObjectTypeInternalSlot
 | ObjectTypeCallProperty
 | ObjectTypeIndexer
 | ObjectTypeProperty
-| ObjectTypeSpreadProperty;export type Method = ObjectMethod | ClassMethod | ClassPrivateMethod;export type ObjectMember = ObjectMethod | ObjectProperty;export type Property = ObjectProperty | ClassProperty | ClassAccessorProperty | ClassPrivateProperty;export type UnaryLike = UnaryExpression | SpreadElement;export type Pattern = AssignmentPattern | ArrayPattern | ObjectPattern;export type Class = ClassExpression | ClassDeclaration;export type ModuleDeclaration = ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration | ImportDeclaration;export type ExportDeclaration = ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration;export type ModuleSpecifier = ExportSpecifier
+| ObjectTypeSpreadProperty;declare export type Method = ObjectMethod | ClassMethod | ClassPrivateMethod;declare export type ObjectMember = ObjectMethod | ObjectProperty;declare export type Property = ObjectProperty | ClassProperty | ClassAccessorProperty | ClassPrivateProperty;declare export type UnaryLike = UnaryExpression | SpreadElement;declare export type Pattern = AssignmentPattern | ArrayPattern | ObjectPattern;declare export type Class = ClassExpression | ClassDeclaration;declare export type ModuleDeclaration = ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration | ImportDeclaration;declare export type ExportDeclaration = ExportAllDeclaration | ExportDefaultDeclaration | ExportNamedDeclaration;declare export type ModuleSpecifier = ExportSpecifier
 | ImportDefaultSpecifier
 | ImportNamespaceSpecifier
 | ImportSpecifier
 | ExportNamespaceSpecifier
-| ExportDefaultSpecifier;export type Accessor = ClassAccessorProperty;export type Private = ClassPrivateProperty | ClassPrivateMethod | PrivateName;export type Flow = AnyTypeAnnotation
+| ExportDefaultSpecifier;declare export type Accessor = ClassAccessorProperty;declare export type Private = ClassPrivateProperty | ClassPrivateMethod | PrivateName;declare export type Flow = AnyTypeAnnotation
 | ArrayTypeAnnotation
 | BooleanTypeAnnotation
 | BooleanLiteralTypeAnnotation
@@ -2197,7 +2197,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | EnumStringMember
 | EnumDefaultedMember
 | IndexedAccessType
-| OptionalIndexedAccessType;export type FlowType = AnyTypeAnnotation
+| OptionalIndexedAccessType;declare export type FlowType = AnyTypeAnnotation
 | ArrayTypeAnnotation
 | BooleanTypeAnnotation
 | BooleanLiteralTypeAnnotation
@@ -2222,7 +2222,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | UnionTypeAnnotation
 | VoidTypeAnnotation
 | IndexedAccessType
-| OptionalIndexedAccessType;export type FlowBaseAnnotation = AnyTypeAnnotation
+| OptionalIndexedAccessType;declare export type FlowBaseAnnotation = AnyTypeAnnotation
 | BooleanTypeAnnotation
 | NullLiteralTypeAnnotation
 | MixedTypeAnnotation
@@ -2231,7 +2231,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | StringTypeAnnotation
 | SymbolTypeAnnotation
 | ThisTypeAnnotation
-| VoidTypeAnnotation;export type FlowDeclaration = DeclareClass
+| VoidTypeAnnotation;declare export type FlowDeclaration = DeclareClass
 | DeclareFunction
 | DeclareInterface
 | DeclareModule
@@ -2243,7 +2243,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | DeclareExportAllDeclaration
 | InterfaceDeclaration
 | OpaqueType
-| TypeAlias;export type FlowPredicate = DeclaredPredicate | InferredPredicate;export type EnumBody = EnumBooleanBody | EnumNumberBody | EnumStringBody | EnumSymbolBody;export type EnumMember = EnumBooleanMember | EnumNumberMember | EnumStringMember | EnumDefaultedMember;export type JSX = JSXAttribute
+| TypeAlias;declare export type FlowPredicate = DeclaredPredicate | InferredPredicate;declare export type EnumBody = EnumBooleanBody | EnumNumberBody | EnumStringBody | EnumSymbolBody;declare export type EnumMember = EnumBooleanMember | EnumNumberMember | EnumStringMember | EnumDefaultedMember;declare export type JSX = JSXAttribute
 | JSXClosingElement
 | JSXElement
 | JSXEmptyExpression
@@ -2257,7 +2257,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | JSXText
 | JSXFragment
 | JSXOpeningFragment
-| JSXClosingFragment;export type Miscellaneous = Noop | Placeholder | V8IntrinsicIdentifier;export type TypeScript = TSParameterProperty
+| JSXClosingFragment;declare export type Miscellaneous = Noop | Placeholder | V8IntrinsicIdentifier;declare export type TypeScript = TSParameterProperty
 | TSDeclareFunction
 | TSDeclareMethod
 | TSQualifiedName
@@ -2320,11 +2320,11 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSTypeAnnotation
 | TSTypeParameterInstantiation
 | TSTypeParameterDeclaration
-| TSTypeParameter;export type TSTypeElement = TSCallSignatureDeclaration
+| TSTypeParameter;declare export type TSTypeElement = TSCallSignatureDeclaration
 | TSConstructSignatureDeclaration
 | TSPropertySignature
 | TSMethodSignature
-| TSIndexSignature;export type TSType = TSAnyKeyword
+| TSIndexSignature;declare export type TSType = TSAnyKeyword
 | TSBooleanKeyword
 | TSBigIntKeyword
 | TSIntrinsicKeyword
@@ -2358,7 +2358,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSMappedType
 | TSLiteralType
 | TSExpressionWithTypeArguments
-| TSImportType;export type TSBaseType = TSAnyKeyword
+| TSImportType;declare export type TSBaseType = TSAnyKeyword
 | TSBooleanKeyword
 | TSBigIntKeyword
 | TSIntrinsicKeyword
@@ -2372,7 +2372,7 @@ export type SpreadProperty = SpreadElement;export type Standardized = ArrayExpre
 | TSUnknownKeyword
 | TSVoidKeyword
 | TSThisType
-| TSLiteralType;export interface Aliases {
+| TSLiteralType;declare export interface Aliases {
 Standardized: Standardized,
 Expression: Expression,
 Binary: Binary,
@@ -4931,7 +4931,7 @@ declare export function cloneDeep<T: Node>(n: T): T
 declare export function cloneDeepWithoutLoc<T: Node>(n: T): T
 declare export function cloneNode<T: Node>(n: T, deep?: boolean, withoutLoc?: boolean): T
 declare export function cloneWithoutLoc<T: Node>(n: T): T
-export type CommentTypeShorthand = "leading" | "inner" | "trailing";declare export function addComment<T: Node>(
+declare export type CommentTypeShorthand = "leading" | "inner" | "trailing";declare export function addComment<T: Node>(
 node: T,
 type: CommentTypeShorthand,
 content: string,
@@ -5047,11 +5047,11 @@ declare export function getOuterBindingIdentifiers(node: Node, duplicates?: fals
 declare export function getOuterBindingIdentifiers(
 node: Node,
 duplicates: boolean): {[key: string]: Identifier | Array<Identifier>, ...}
-export type TraversalAncestors = $ReadOnlyArray<{
+declare export type TraversalAncestors = $ReadOnlyArray<{
 node: Node,
 key: string,
 index?: number,...
-}>;export type TraversalHandler<T> = (node: Node, parent: TraversalAncestors, type: T) => void;export type TraversalHandlers<T> = {
+}>;declare export type TraversalHandler<T> = (node: Node, parent: TraversalAncestors, type: T) => void;declare export type TraversalHandlers<T> = {
 enter?: TraversalHandler<T>,
 exit?: TraversalHandler<T>,...
 };declare export function traverse<T>(n: Node, h: TraversalHandler<T> | TraversalHandlers<T>, state?: T): void
